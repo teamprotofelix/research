@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.local
+.DS_Store
+Thumbs.db
+npm-debug.log*
+.claude/
+
+# 참고용 원본 사이트 폴더는 이 저장소에 포함하지 않는다.
+참고폴더/

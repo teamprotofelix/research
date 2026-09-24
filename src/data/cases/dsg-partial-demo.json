@@ -1,0 +1,126 @@
+{
+  "id": "DSG-PARTIAL-DEMO",
+  "rightType": "DESIGN",
+  "fictional": true,
+  "titleKey": "cases.dsgPartial.title",
+  "blurbKey": "cases.dsgPartial.blurb",
+  "summaryKeys": [
+    "cases.dsgPartial.summary1",
+    "cases.dsgPartial.summary2",
+    "cases.dsgPartial.summary3"
+  ],
+  "documents": [
+    {
+      "id": "doc_scope",
+      "kind": "SCOPE_DECLARATION",
+      "titleKey": "cases.dsgPartial.doc.scope",
+      "availableAtStart": true,
+      "defaultVariant": "scp_partial",
+      "origin": "CASE_DOCUMENT",
+      "variants": {
+        "scp_partial": {
+          "versionLabelKey": "cases.dsgPartial.docVariants.scope.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_sc1", "textKey": "cases.dsgPartial.span.sc1.text", "locationKey": "cases.dsgPartial.span.sc1.loc" }
+          ]
+        },
+        "scp_whole": {
+          "versionLabelKey": "cases.dsgPartial.docVariants.scope.v2",
+          "complete": true,
+          "spans": [
+            { "id": "span_sc2", "textKey": "cases.dsgPartial.span.sc2.text", "locationKey": "cases.dsgPartial.span.sc2.loc" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "doc_drawings",
+      "kind": "DESIGN_DRAWINGS",
+      "titleKey": "cases.dsgPartial.doc.drawings",
+      "availableAtStart": true,
+      "defaultVariant": "dwg_v1",
+      "origin": "CASE_DOCUMENT",
+      "variants": {
+        "dwg_v1": {
+          "versionLabelKey": "cases.dsgPartial.docVariants.drawings.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_d1", "textKey": "cases.dsgPartial.span.d1.text", "locationKey": "cases.dsgPartial.span.d1.loc" },
+            { "id": "span_d2", "textKey": "cases.dsgPartial.span.d2.text", "locationKey": "cases.dsgPartial.span.d2.loc" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "doc_views",
+      "kind": "DESIGN_DRAWINGS",
+      "titleKey": "cases.dsgPartial.doc.views",
+      "availableAtStart": false,
+      "defaultVariant": "rv_v1",
+      "origin": "AI_DISCOVERED",
+      "variants": {
+        "rv_v1": {
+          "versionLabelKey": "cases.dsgPartial.docVariants.views.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_r1", "textKey": "cases.dsgPartial.span.r1.text", "locationKey": "cases.dsgPartial.span.r1.loc" }
+          ]
+        }
+      }
+    }
+  ],
+  "examinerCitedReferenceIds": [],
+  "aiDiscoveredCandidateIds": ["doc_views"],
+  "facts": [
+    {
+      "id": "f_scope_partial",
+      "labelKey": "cases.dsgPartial.f.scopePartial.label",
+      "explainKey": "cases.dsgPartial.f.scopePartial.explain",
+      "values": { "absent": null, "scp_partial": true, "scp_whole": false },
+      "sources": { "absent": [], "scp_partial": ["span_sc1"], "scp_whole": ["span_sc2"] },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO",
+      "requiresDocId": "doc_scope"
+    },
+    {
+      "id": "f_partial_lines",
+      "labelKey": "cases.dsgPartial.f.partialLines.label",
+      "explainKey": "cases.dsgPartial.f.partialLines.explain",
+      "values": { "absent": null, "scp_partial": true, "scp_whole": false },
+      "sources": { "absent": [], "scp_partial": ["span_sc1"], "scp_whole": ["span_sc2"] },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO",
+      "requiresDocId": "doc_scope"
+    },
+    {
+      "id": "f_rotated_views",
+      "labelKey": "cases.dsgPartial.f.rotatedViews.label",
+      "explainKey": "cases.dsgPartial.f.rotatedViews.explain",
+      "values": { "absent": false, "rv_v1": true },
+      "sources": { "absent": [], "rv_v1": ["span_r1"] },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO",
+      "requiresDocId": "doc_views"
+    }
+  ],
+  "ruleIds": ["DSG-IF-009"],
+  "rules": [
+    {
+      "id": "DSG-IF-009",
+      "titleKey": "rules.dsgif.title",
+      "applicableRightTypes": ["DESIGN"],
+      "authorityLabelKey": "rules.dsgif.authority",
+      "condition": "design-scope",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "effectiveFrom": "2025-01-01",
+          "requiredFactIds": ["f_scope_partial", "f_partial_lines", "f_rotated_views"],
+          "conditionKey": "cases.dsgPartial.rule.condition",
+          "changelogKey": "rules.dsgif.changelog.1.0.0"
+        }
+      ]
+    }
+  ]
+}

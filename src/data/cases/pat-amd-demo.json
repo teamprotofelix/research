@@ -1,0 +1,131 @@
+{
+  "id": "PAT-AMD-DEMO",
+  "rightType": "UTILITY_MODEL",
+  "fictional": true,
+  "titleKey": "cases.patAmd.title",
+  "blurbKey": "cases.patAmd.blurb",
+  "summaryKeys": [
+    "cases.patAmd.summary1",
+    "cases.patAmd.summary2",
+    "cases.patAmd.summary3"
+  ],
+  "documents": [
+    {
+      "id": "doc_claims_orig",
+      "kind": "CLAIMS",
+      "titleKey": "cases.patAmd.doc.claimsOrig",
+      "availableAtStart": true,
+      "defaultVariant": "claims_v1",
+      "origin": "CASE_DOCUMENT",
+      "variants": {
+        "claims_v1": {
+          "versionLabelKey": "cases.patAmd.docVariants.claimsOrig.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_c1o", "textKey": "cases.patAmd.span.c1o.text", "locationKey": "cases.patAmd.span.c1o.loc" },
+            { "id": "span_c2o", "textKey": "cases.patAmd.span.c2o.text", "locationKey": "cases.patAmd.span.c2o.loc" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "doc_amendment",
+      "kind": "AMENDMENT",
+      "titleKey": "cases.patAmd.doc.amendment",
+      "availableAtStart": false,
+      "defaultVariant": "amd_v1",
+      "origin": "CASE_DOCUMENT",
+      "variants": {
+        "amd_v1": {
+          "versionLabelKey": "cases.patAmd.docVariants.amendment.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_amd1", "textKey": "cases.patAmd.span.amd1.text", "locationKey": "cases.patAmd.span.amd1.loc" }
+          ]
+        },
+        "amd_v2": {
+          "versionLabelKey": "cases.patAmd.docVariants.amendment.v2",
+          "complete": true,
+          "spans": [
+            { "id": "span_amd2", "textKey": "cases.patAmd.span.amd2.text", "locationKey": "cases.patAmd.span.amd2.loc" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "doc_oa2",
+      "kind": "OFFICE_ACTION",
+      "titleKey": "cases.patAmd.doc.oa2",
+      "availableAtStart": true,
+      "defaultVariant": "oa2_v1",
+      "origin": "EXAMINER_CITED",
+      "variants": {
+        "oa2_v1": {
+          "versionLabelKey": "cases.patAmd.docVariants.oa2.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_oa2a", "textKey": "cases.patAmd.span.oa2a.text", "locationKey": "cases.patAmd.span.oa2a.loc" }
+          ]
+        },
+        "oa2_v2": {
+          "versionLabelKey": "cases.patAmd.docVariants.oa2.v2",
+          "complete": true,
+          "spans": [
+            { "id": "span_oa2b", "textKey": "cases.patAmd.span.oa2b.text", "locationKey": "cases.patAmd.span.oa2b.loc" }
+          ]
+        }
+      }
+    }
+  ],
+  "examinerCitedReferenceIds": ["doc_oa2"],
+  "aiDiscoveredCandidateIds": ["doc_amendment"],
+  "facts": [
+    {
+      "id": "f_amend_changed",
+      "labelKey": "cases.patAmd.f.amendChanged.label",
+      "explainKey": "cases.patAmd.f.amendChanged.explain",
+      "values": { "absent": null, "amd_v1": true, "amd_v2": false },
+      "sources": {
+        "absent": [],
+        "amd_v1": ["span_amd1"],
+        "amd_v2": ["span_amd2"]
+      },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO",
+      "requiresDocId": "doc_amendment"
+    },
+    {
+      "id": "f_amended_mapping",
+      "labelKey": "cases.patAmd.f.amendedMapping.label",
+      "explainKey": "cases.patAmd.f.amendedMapping.explain",
+      "values": { "oa2_v1": false, "oa2_v2": true },
+      "sources": {
+        "oa2_v1": ["span_oa2a"],
+        "oa2_v2": ["span_oa2b"]
+      },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO",
+      "requiresDocId": "doc_oa2"
+    }
+  ],
+  "ruleIds": ["PEQ-IS-021"],
+  "rules": [
+    {
+      "id": "PEQ-IS-021",
+      "titleKey": "rules.peqis021.title",
+      "applicableRightTypes": ["PATENT", "UTILITY_MODEL"],
+      "authorityLabelKey": "rules.peqis021.authority",
+      "condition": "amendment-recheck",
+      "dateSensitive": true,
+      "versions": [
+        {
+          "version": "1.0.0",
+          "effectiveFrom": "2026-06-01",
+          "requiredFactIds": ["f_amend_changed", "f_amended_mapping"],
+          "conditionKey": "cases.patAmd.rule.condition",
+          "changelogKey": "rules.peqis021.changelog.1.0.0"
+        }
+      ]
+    }
+  ]
+}

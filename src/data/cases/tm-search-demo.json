@@ -1,0 +1,180 @@
+{
+  "id": "TM-SEARCH-DEMO",
+  "rightType": "TRADEMARK",
+  "fictional": true,
+  "titleKey": "cases.tmSearch.title",
+  "blurbKey": "cases.tmSearch.blurb",
+  "summaryKeys": [
+    "cases.tmSearch.summary1",
+    "cases.tmSearch.summary2",
+    "cases.tmSearch.summary3"
+  ],
+  "documents": [
+    {
+      "id": "doc_mark",
+      "kind": "TRADEMARK_APP",
+      "titleKey": "cases.tmSearch.doc.mark",
+      "availableAtStart": true,
+      "defaultVariant": "mark_v1",
+      "origin": "CASE_DOCUMENT",
+      "variants": {
+        "mark_v1": {
+          "versionLabelKey": "cases.tmSearch.docVariants.mark.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_m1", "textKey": "cases.tmSearch.span.m1.text", "locationKey": "cases.tmSearch.span.m1.loc" },
+            { "id": "span_m2", "textKey": "cases.tmSearch.span.m2.text", "locationKey": "cases.tmSearch.span.m2.loc" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "doc_axis_string",
+      "kind": "SEARCH_CONFIG",
+      "titleKey": "cases.tmSearch.doc.axisString",
+      "availableAtStart": true,
+      "defaultVariant": "axs_v1",
+      "origin": "CASE_DOCUMENT",
+      "variants": {
+        "axs_v1": {
+          "versionLabelKey": "cases.tmSearch.docVariants.axisString.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_s1", "textKey": "cases.tmSearch.span.s1.text", "locationKey": "cases.tmSearch.span.s1.loc" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "doc_axis_phonetic",
+      "kind": "SEARCH_CONFIG",
+      "titleKey": "cases.tmSearch.doc.axisPhonetic",
+      "availableAtStart": true,
+      "defaultVariant": "axp_v1",
+      "origin": "CASE_DOCUMENT",
+      "variants": {
+        "axp_v1": {
+          "versionLabelKey": "cases.tmSearch.docVariants.axisPhonetic.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_p1", "textKey": "cases.tmSearch.span.p1.text", "locationKey": "cases.tmSearch.span.p1.loc" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "doc_axis_image",
+      "kind": "SEARCH_CONFIG",
+      "titleKey": "cases.tmSearch.doc.axisImage",
+      "availableAtStart": true,
+      "defaultVariant": "axi_v1",
+      "origin": "CASE_DOCUMENT",
+      "variants": {
+        "axi_v1": {
+          "versionLabelKey": "cases.tmSearch.docVariants.axisImage.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_i1", "textKey": "cases.tmSearch.span.i1.text", "locationKey": "cases.tmSearch.span.i1.loc" }
+          ]
+        }
+      }
+    }
+  ],
+  "examinerCitedReferenceIds": [],
+  "aiDiscoveredCandidateIds": [],
+  "facts": [
+    {
+      "id": "f_axis_string",
+      "labelKey": "cases.tmSearch.f.axisString.label",
+      "explainKey": "cases.tmSearch.f.axisString.explain",
+      "values": { "absent": null, "axs_v1": true },
+      "sources": { "absent": [], "axs_v1": ["span_s1"] },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO",
+      "requiresDocId": "doc_axis_string"
+    },
+    {
+      "id": "f_axis_phonetic",
+      "labelKey": "cases.tmSearch.f.axisPhonetic.label",
+      "explainKey": "cases.tmSearch.f.axisPhonetic.explain",
+      "values": { "absent": null, "axp_v1": true },
+      "sources": { "absent": [], "axp_v1": ["span_p1"] },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO",
+      "requiresDocId": "doc_axis_phonetic"
+    },
+    {
+      "id": "f_axis_image",
+      "labelKey": "cases.tmSearch.f.axisImage.label",
+      "explainKey": "cases.tmSearch.f.axisImage.explain",
+      "values": { "absent": null, "axi_v1": true },
+      "sources": { "absent": [], "axi_v1": ["span_i1"] },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO",
+      "requiresDocId": "doc_axis_image"
+    }
+  ],
+  "ruleIds": ["TM-STR-001", "TM-PHN-001", "TM-IMG-001"],
+  "rules": [
+    {
+      "id": "TM-STR-001",
+      "titleKey": "rules.tmstr.title",
+      "applicableRightTypes": ["TRADEMARK"],
+      "authorityLabelKey": "rules.tmstr.authority",
+      "condition": "tm-candidates:STRING",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "effectiveFrom": "2025-01-01",
+          "requiredFactIds": ["f_axis_string"],
+          "conditionKey": "cases.tmSearch.rule.condition",
+          "changelogKey": "rules.tmstr.changelog.1.0.0"
+        }
+      ]
+    },
+    {
+      "id": "TM-PHN-001",
+      "titleKey": "rules.tmphn.title",
+      "applicableRightTypes": ["TRADEMARK"],
+      "authorityLabelKey": "rules.tmphn.authority",
+      "condition": "tm-candidates:PHONETIC",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "effectiveFrom": "2025-01-01",
+          "requiredFactIds": ["f_axis_phonetic"],
+          "conditionKey": "cases.tmSearch.rule.condition",
+          "changelogKey": "rules.tmphn.changelog.1.0.0"
+        }
+      ]
+    },
+    {
+      "id": "TM-IMG-001",
+      "titleKey": "rules.tmimg.title",
+      "applicableRightTypes": ["TRADEMARK"],
+      "authorityLabelKey": "rules.tmimg.authority",
+      "condition": "tm-candidates:IMAGE",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "effectiveFrom": "2025-01-01",
+          "requiredFactIds": ["f_axis_image"],
+          "conditionKey": "cases.tmSearch.rule.condition",
+          "changelogKey": "rules.tmimg.changelog.1.0.0"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    { "id": "tmc-1", "markKey": "cases.tmSearch.cand.1", "score": 100, "axis": "STRING" },
+    { "id": "tmc-2", "markKey": "cases.tmSearch.cand.2", "score": 92, "axis": "STRING" },
+    { "id": "tmc-3", "markKey": "cases.tmSearch.cand.3", "score": 88, "axis": "STRING" },
+    { "id": "tmc-4", "markKey": "cases.tmSearch.cand.4", "score": 81, "axis": "STRING" },
+    { "id": "tmc-5", "markKey": "cases.tmSearch.cand.5", "score": 90, "axis": "PHONETIC" },
+    { "id": "tmc-6", "markKey": "cases.tmSearch.cand.6", "score": 84, "axis": "PHONETIC" },
+    { "id": "tmc-7", "markKey": "cases.tmSearch.cand.7", "score": 76, "axis": "PHONETIC" },
+    { "id": "tmc-8", "markKey": "cases.tmSearch.cand.8", "score": 87, "axis": "IMAGE" },
+    { "id": "tmc-9", "markKey": "cases.tmSearch.cand.9", "score": 79, "axis": "IMAGE" },
+    { "id": "tmc-10", "markKey": "cases.tmSearch.cand.10", "score": 72, "axis": "IMAGE" }
+  ]
+}

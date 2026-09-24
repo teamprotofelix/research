@@ -1,0 +1,107 @@
+================================================================================
+  research.caipex.site — 이미지 생성 프롬프트 (5종)
+================================================================================
+
+■ 사용 방법
+  1. 아래 프롬프트를 이미지 생성 도구에 그대로 입력해 이미지를 만든다.
+  2. 생성한 이미지를 다음 폴더에 아래 "파일명" 그대로 저장한다.
+       public/assets/images/
+  3. 파일을 넣고 npm run build(또는 GitHub에 push)하면 해당 위치에 자동 적용된다.
+     이미지가 없어도 사이트는 CSS/SVG 폴백 디자인으로 완성되어 있다.
+
+■ 공통 규칙 (모든 이미지에 적용)
+  - 이미지 안에 문자·로고·숫자·UI 라벨·가짜 차트·가짜 문서 텍스트를 절대 넣지 않는다.
+    (사이트가 한·영·일 3개 언어이므로, 이미지 안 텍스트는 어떤 언어에도 맞지 않는다.
+     모든 텍스트는 HTML로 겹쳐서 표시한다.)
+  - 색감은 사이트 테마와 맞춘다:
+      종이색 #F7F9FB · 진한 남색 #142232 · 절제된 청록 #166A83 · 옅은 코발트 포인트
+  - 공통 네거티브 프롬프트:
+      no text, no letters, no numbers, no logo, no government seal,
+      no patent office emblem, no fake charts, no fake document text,
+      no crowded dashboard, no humanoid robot, no stock-photo handshake,
+      no copyrighted interface, no neon, no sci-fi city.
+  - 형식: WebP 우선, PNG도 허용. 저장소에는 최적화본을 넣는다.
+
+================================================================================
+
+【A】 research-hero.webp — 홈 · 연구 소개 (대표 이미지)
+  비율/크기: 16:9, 1600×900 이상
+  대체텍스트 의미: "사건 자료와 근거가 연결된 연구 장면"
+
+  프롬프트:
+  Create a premium editorial visual for a serious research website on
+  AI-assisted intellectual-property examination quality. A bright, calm
+  research workspace where abstract case documents, evidence fragments,
+  search paths, structured facts, symbolic rules, and human review form
+  one coherent flow. Use refined paper-white, deep navy, muted teal and
+  very subtle cobalt accents. Architectural depth and generous negative
+  space on the left for HTML headline overlay. Sophisticated academic
+  exhibition aesthetic, not a product dashboard. No text, numbers, logos,
+  seals, legible documents, or people portraits. Wide 16:9 composition,
+  high resolution.
+
+【B】 evidence-library.webp — 연구 개요 · 연구 방법
+  비율/크기: 3:2, 1200×800 이상
+  대체텍스트 의미: "문헌·근거 조각을 대조하는 추상 연구 공간"
+
+  프롬프트:
+  An elegant abstract evidence library for an AI research institute:
+  translucent document layers, highlighted passages connected by fine
+  lines to structured fact cards and source locations, careful provenance
+  and uncertainty represented through light and depth. Bright neutral
+  background, navy, soft teal, restrained scientific editorial style.
+  The structure should feel credible and precise but contain no readable
+  text or fake charts. 3:2 composition. No logos, seals, faces, or UI
+  screenshots.
+
+【C】 multimodal-rights.webp — 권리별 사례 (이미지 미생성 시 카드 상단에 사용 가능)
+  비율/크기: 3:2, 1200×800 이상
+  대체텍스트 의미: "문자·이미지·디자인 형태를 비교하는 시각"
+
+  프롬프트:
+  A calm visual study of three intellectual-property evidence types:
+  textual technical claims, abstract trademark shapes and sound-wave-like
+  form, and industrial-design silhouettes, arranged as related yet
+  distinct research materials. Clean white studio background, navy and
+  teal details, soft shadows, credible academic design. Avoid real brands
+  and specific patented products. No words, letters, logos, seals,
+  numbers, or fake application documents. 3:2 composition.
+
+【D】 human-review.webp — 미래의 하루
+  비율/크기: 4:3, 1200×900 이상
+  대체텍스트 의미: "사람이 근거를 확인하는 차분한 작업 장면"
+
+  프롬프트:
+  A close, respectful editorial scene of a human expert reviewing linked
+  evidence and a transparent decision trail at a desk, shown through
+  hands and abstract paper and screen surfaces rather than an identifiable
+  face. Calm professional research environment, soft natural light,
+  slate navy and subtle teal, honest human oversight. No readable
+  on-screen content, no logo, no government symbolism, no posed
+  stock-photo feel. 4:3 composition.
+
+【E】 research-horizon.webp — 구축 시나리오(로드맵)
+  비율/크기: 21:9, 1680×720 이상
+  대체텍스트 의미: "단계적으로 연결되는 연구 인프라"
+
+  프롬프트:
+  A wide cinematic but restrained academic research landscape composed of
+  connected modular layers suggesting data acquisition, validation,
+  evaluation, and governance progressing into the distance. Pale cool
+  gray to white background, deep navy, teal, minimal luminous detail,
+  large clean spaces for HTML overlay. Institutional research aesthetic,
+  no science-fiction city, no text, no labels, no fake graphs, no logos.
+  Panoramic 21:9 composition.
+
+================================================================================
+
+■ 참고
+  - [A]는 홈 히어로(우측)·연구 개요에, [B]는 연구 개요·연구 방법에,
+    [D]는 미래의 하루에, [E]는 로드맵 하단에 배치된다. [C]는 권리별
+    사례 페이지 상단 이미지로 사용할 수 있다.
+  - 이미지가 준비되기 전까지 각 자리는 그라데이션·SVG 선·텍스트 대체
+    디자인으로 동작한다 (이미지 폴백은 자동).
+  - 생성 이미지 안에 사람 얼굴 중심의 스톡 사진, 군복·정부 청사 이미지,
+    가짜 공인기관 문장, AI 로봇 머리 이미지는 사용하지 않는다.
+  - CAIPEX 로고는 이미지 생성으로 만들지 않는다 — 참고폴더의 공식
+    로고 파일(public/assets/images/caipex-logo.png)을 사용한다.

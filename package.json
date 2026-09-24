@@ -1,0 +1,29 @@
+{
+  "name": "research-caipex-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AI 기반 지식재산 심사품질 고도화 연구 체험 사이트 — 정적 GitHub Pages 사이트 (한국어/영어/일본어, 시스템/라이트/다크 테마)",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.5.0",
+    "jsdom": "^26.0.0",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.4"
+  }
+}

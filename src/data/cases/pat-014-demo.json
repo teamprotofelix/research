@@ -1,0 +1,170 @@
+{
+  "id": "PAT-014-DEMO",
+  "rightType": "PATENT",
+  "fictional": true,
+  "titleKey": "cases.pat014.title",
+  "blurbKey": "cases.pat014.blurb",
+  "summaryKeys": [
+    "cases.pat014.summary1",
+    "cases.pat014.summary2",
+    "cases.pat014.summary3"
+  ],
+  "documents": [
+    {
+      "id": "doc_claims",
+      "kind": "CLAIMS",
+      "titleKey": "cases.pat014.doc.claims",
+      "availableAtStart": true,
+      "defaultVariant": "claims_v1",
+      "origin": "CASE_DOCUMENT",
+      "variants": {
+        "claims_v1": {
+          "versionLabelKey": "cases.pat014.docVariants.claims.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_c1", "textKey": "cases.pat014.span.c1.text", "locationKey": "cases.pat014.span.c1.loc" },
+            { "id": "span_c2", "textKey": "cases.pat014.span.c2.text", "locationKey": "cases.pat014.span.c2.loc" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "doc_citations",
+      "kind": "CITATION_LIST",
+      "titleKey": "cases.pat014.doc.citations",
+      "availableAtStart": true,
+      "defaultVariant": "cit_v1",
+      "origin": "EXAMINER_CITED",
+      "variants": {
+        "cit_v1": {
+          "versionLabelKey": "cases.pat014.docVariants.citations.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_d1", "textKey": "cases.pat014.span.d1.text", "locationKey": "cases.pat014.span.d1.loc" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "doc_oa",
+      "kind": "OFFICE_ACTION",
+      "titleKey": "cases.pat014.doc.oa",
+      "availableAtStart": false,
+      "defaultVariant": "oa_v1",
+      "origin": "AI_DISCOVERED",
+      "variants": {
+        "oa_v1": {
+          "versionLabelKey": "cases.pat014.docVariants.oa.v1",
+          "complete": true,
+          "spans": [
+            { "id": "span_oa1", "textKey": "cases.pat014.span.oa1.text", "locationKey": "cases.pat014.span.oa1.loc" },
+            { "id": "span_oa1b", "textKey": "cases.pat014.span.oa1b.text", "locationKey": "cases.pat014.span.oa1b.loc" }
+          ]
+        },
+        "oa_v2": {
+          "versionLabelKey": "cases.pat014.docVariants.oa.v2",
+          "complete": true,
+          "spans": [
+            { "id": "span_oa2", "textKey": "cases.pat014.span.oa2.text", "locationKey": "cases.pat014.span.oa2.loc" },
+            { "id": "span_oa2b", "textKey": "cases.pat014.span.oa2b.text", "locationKey": "cases.pat014.span.oa2b.loc" }
+          ]
+        },
+        "oa_v3": {
+          "versionLabelKey": "cases.pat014.docVariants.oa.v3",
+          "complete": false,
+          "spans": [
+            { "id": "span_oa3", "textKey": "cases.pat014.span.oa3.text", "locationKey": "cases.pat014.span.oa3.loc" }
+          ]
+        }
+      }
+    }
+  ],
+  "examinerCitedReferenceIds": ["doc_citations"],
+  "aiDiscoveredCandidateIds": ["doc_oa"],
+  "facts": [
+    {
+      "id": "f_claim1",
+      "labelKey": "cases.pat014.f.claim1.label",
+      "explainKey": "cases.pat014.f.claim1.explain",
+      "values": { "*": true },
+      "sources": { "*": ["span_c1"] },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO"
+    },
+    {
+      "id": "f_claim2",
+      "labelKey": "cases.pat014.f.claim2.label",
+      "explainKey": "cases.pat014.f.claim2.explain",
+      "values": { "*": true },
+      "sources": { "*": ["span_c2"] },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO"
+    },
+    {
+      "id": "f_d1_ab",
+      "labelKey": "cases.pat014.f.d1_ab.label",
+      "explainKey": "cases.pat014.f.d1_ab.explain",
+      "values": { "*": true },
+      "sources": { "*": ["span_d1"] },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO"
+    },
+    {
+      "id": "f_map_c",
+      "labelKey": "cases.pat014.f.map_c.label",
+      "explainKey": "cases.pat014.f.map_c.explain",
+      "values": { "absent": null, "oa_v1": false, "oa_v2": true, "oa_v3": null },
+      "sources": {
+        "absent": [],
+        "oa_v1": ["span_oa1b"],
+        "oa_v2": ["span_oa2b"],
+        "oa_v3": ["span_oa3"]
+      },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO",
+      "requiresDocId": "doc_oa"
+    },
+    {
+      "id": "f_oa_complete",
+      "labelKey": "cases.pat014.f.oa_complete.label",
+      "explainKey": "cases.pat014.f.oa_complete.explain",
+      "values": { "absent": false, "oa_v1": true, "oa_v2": true, "oa_v3": false },
+      "sources": {
+        "absent": [],
+        "oa_v1": ["span_oa1b"],
+        "oa_v2": ["span_oa2b"],
+        "oa_v3": ["span_oa3"]
+      },
+      "status": "AVAILABLE",
+      "extractor": "PREPARED_DEMO",
+      "requiresDocId": "doc_oa"
+    }
+  ],
+  "ruleIds": ["PEQ-IS-014"],
+  "rules": [
+    {
+      "id": "PEQ-IS-014",
+      "titleKey": "rules.peqis014.title",
+      "applicableRightTypes": ["PATENT", "UTILITY_MODEL"],
+      "authorityLabelKey": "rules.peqis014.authority",
+      "condition": "claim-mapping-coverage",
+      "dateSensitive": true,
+      "versions": [
+        {
+          "version": "1.1.0",
+          "effectiveFrom": "2026-09-01",
+          "requiredFactIds": ["f_claim1", "f_claim2", "f_d1_ab", "f_map_c", "f_oa_complete"],
+          "conditionKey": "cases.pat014.rule.condition",
+          "changelogKey": "rules.peqis014.changelog.1.1.0"
+        },
+        {
+          "version": "1.0.0",
+          "effectiveFrom": "2025-03-01",
+          "requiredFactIds": ["f_claim2", "f_d1_ab", "f_map_c", "f_oa_complete"],
+          "conditionKey": "cases.pat014.rule.condition",
+          "changelogKey": "rules.peqis014.changelog.1.0.0"
+        }
+      ]
+    }
+  ]
+}

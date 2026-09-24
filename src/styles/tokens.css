@@ -1,0 +1,143 @@
+/* ─────────────────────────────────────────────────────────────
+   색상 토큰 — 학술 전시·연구실의 기록 분위기
+   라이트: 밝은 종이색 배경, 짙은 남색 본문, 절제된 청록 강조
+   다크: 별도로 설계한 어두운 연구 화면 (단순 반전 아님)
+   ───────────────────────────────────────────────────────────── */
+
+:root,
+:root[data-theme='light'] {
+  --bg: #f7f9fb;
+  --surface: #ffffff;
+  --surface-2: #eef2f6;
+  --ink: #142232;
+  --muted: #536476;
+  --faint: #7c8a99;
+  --accent: #166a83;
+  --accent-strong: #10546a;
+  --accent-soft: #e3f0f4;
+  --accent-line: #bcd7e0;
+  --line: #d8e0e6;
+  --line-strong: #c2cdd6;
+  --shadow-sm: 0 1px 2px rgba(20, 34, 50, 0.05), 0 1px 1px rgba(20, 34, 50, 0.04);
+  --shadow-md: 0 4px 16px rgba(20, 34, 50, 0.08);
+  --shadow-lg: 0 12px 32px rgba(20, 34, 50, 0.12);
+  --focus: #166a83;
+
+  /* 진단 상태 — 색만이 아니라 단어·아이콘·문장과 함께 사용한다 */
+  --v-true-bg: #fbf1dc;
+  --v-true-ink: #7a5512;
+  --v-true-line: #e5ce9c;
+  --v-false-bg: #e3f2ec;
+  --v-false-ink: #0f6150;
+  --v-false-line: #a8d5c5;
+  --v-unknown-bg: #eaeff4;
+  --v-unknown-ink: #42586d;
+  --v-unknown-line: #c2cfdb;
+  --v-na-bg: #f1f3f5;
+  --v-na-ink: #66727e;
+  --v-na-line: #cfd6dd;
+
+  /* 증거 출처 — 심사관 인용 / AI 후보 / 사건 문서 */
+  --o-examiner-bg: #e8eef6;
+  --o-examiner-ink: #1f4e79;
+  --o-examiner-line: #c5d5e8;
+  --o-ai-bg: #e0f0f4;
+  --o-ai-ink: #0f6477;
+  --o-ai-line: #b7d9e2;
+  --o-case-bg: #eef1f4;
+  --o-case-ink: #4b5a68;
+  --o-case-line: #d3dae1;
+
+  /* 자료 등급 */
+  --g-public-bg: #e0f0f4;
+  --g-public-ink: #0f6477;
+  --g-public-line: #b7d9e2;
+  --g-unpub-bg: #fbf1dc;
+  --g-unpub-ink: #7a5512;
+  --g-unpub-line: #e5ce9c;
+  --g-restricted-bg: #f8e5e7;
+  --g-restricted-ink: #8c2f3a;
+  --g-restricted-line: #e8bfc5;
+
+  --code-bg: #eef2f6;
+  --code-ink: #1f3a55;
+  --selection: #bcd7e0;
+  --scrollbar: #c2cdd6;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0e1822;
+  --surface: #172530;
+  --surface-2: #1d2e3b;
+  --ink: #eff5f8;
+  --muted: #aebdc7;
+  --faint: #7e8f9d;
+  --accent: #6bc5d8;
+  --accent-strong: #8fd6e6;
+  --accent-soft: #12313a;
+  --accent-line: #2b5562;
+  --line: #344653;
+  --line-strong: #43566a;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --focus: #6bc5d8;
+
+  --v-true-bg: #3a2e14;
+  --v-true-ink: #ebcf95;
+  --v-true-line: #5a4a24;
+  --v-false-bg: #12322a;
+  --v-false-ink: #83d3b6;
+  --v-false-line: #2b5548;
+  --v-unknown-bg: #212d39;
+  --v-unknown-ink: #b2c3d3;
+  --v-unknown-line: #3c4c5b;
+  --v-na-bg: #1b2530;
+  --v-na-ink: #8a99a7;
+  --v-na-line: #3a4752;
+
+  --o-examiner-bg: #1c2c42;
+  --o-examiner-ink: #9dc0e8;
+  --o-examiner-line: #31496b;
+  --o-ai-bg: #12313a;
+  --o-ai-ink: #7ccde0;
+  --o-ai-line: #2b5562;
+  --o-case-bg: #1e2935;
+  --o-case-ink: #a9b8c6;
+  --o-case-line: #35434f;
+
+  --g-public-bg: #12313a;
+  --g-public-ink: #7ccde0;
+  --g-public-line: #2b5562;
+  --g-unpub-bg: #3a2e14;
+  --g-unpub-ink: #ebcf95;
+  --g-unpub-line: #5a4a24;
+  --g-restricted-bg: #3a1e22;
+  --g-restricted-ink: #e5a3ab;
+  --g-restricted-line: #5c3038;
+
+  --code-bg: #101c27;
+  --code-ink: #a8c8e2;
+  --selection: #2b5562;
+  --scrollbar: #43566a;
+}
+
+/* ── 공통 타이포그래피 토큰 ── */
+:root {
+  --font-sans: 'Segoe UI', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR',
+    'Hiragino Kaku Gothic ProN', 'Yu Gothic', system-ui, -apple-system, sans-serif;
+  --font-serif: Georgia, 'Batang', 'Noto Serif KR', 'Yu Mincho', 'MS Mincho', serif;
+  --font-mono: 'Cascadia Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+
+  --maxw: 1200px;
+  --header-h: 60px;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --t-fast: 200ms;
+  --t-med: 300ms;
+}
